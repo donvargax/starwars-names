@@ -1,14 +1,17 @@
 {
   "name": "@flokyorch/starwars-names",
-  "version": "1.2.0-beta.0",
+  "version": "0.0.0-development",
   "description": "Get random Star Wars names",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "test": "mocha src/index.test.js -w",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kashano/starwars-names.git"
+    "url": "https://github.com/kashano/starwars-names.git"
   },
   "keywords": [
     "random",
@@ -23,5 +26,19 @@
   "homepage": "https://github.com/kashano/starwars-names#readme",
   "dependencies": {
     "unique-random-array": "1.0.1"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "commitizen": "3.0.4",
+    "cz-conventional-changelog": "2.1.0",
+    "mocha": "5.2.0",
+    "semantic-release": "^15.12.1",
+    "semantic-release-cli": "4.0.11",
+    "travis-deploy-once": "^5.0.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
