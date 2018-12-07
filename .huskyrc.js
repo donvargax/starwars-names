@@ -1,5 +1,5 @@
 module.exports = {
 	"hooks": {
-		"pre-commit": "npm run test:single && npm run check-coverage",
+		"pre-commit": "npm run cover && npm run check-coverage",
 	},
 };
