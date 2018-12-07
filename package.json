@@ -10,7 +10,10 @@
     "test:watch": "npm t -- -w",
     "test": "mocha --require @babel/register \"src/**/*.js\"",
     "cover": "nyc --exclude .babelrc.js --exclude \"**/*{.,-}test.js\" --reporter=html --reporter=text npm t",
-    "build": "babel --copy-files --delete-dir-on-start --out-dir dist src",
+    "build": "npm run build:main && npm run build:umd.min",
+    "build:main": "babel --copy-files --delete-dir-on-start --out-dir dist src",
+    "build:umd": "webpack --output-filename index.umd.js",
+    "build:umd.min": "webpack --output-filename index.umd.min.js -p",
     "postbuild": "echo '.npmignore' >> dist/.npmignore && echo '**/*.test.js' >> dist/.npmignore",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
@@ -41,17 +44,21 @@
     "@babel/core": "7.2.0",
     "@babel/preset-env": "7.2.0",
     "@babel/register": "7.0.0",
+    "babel-loader": "8.0.4",
     "chai": "4.2.0",
     "codecov.io": "0.1.6",
     "commitizen": "3.0.4",
     "cz-conventional-changelog": "2.1.0",
     "husky": "1.2.0",
+    "json-loader": "0.5.7",
     "mocha": "5.2.0",
     "nyc": "13.1.0",
     "rimraf": "2.6.2",
     "semantic-release": "15.12.1",
     "semantic-release-cli": "4.0.12",
-    "travis-deploy-once": "5.0.9"
+    "travis-deploy-once": "5.0.9",
+    "webpack": "4.27.1",
+    "webpack-cli": "3.1.2"
   },
   "config": {
     "commitizen": {
