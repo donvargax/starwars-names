@@ -6,7 +6,7 @@
   "scripts": {
     "commit": "git-cz",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "report-coverage": "nyc --reporter=text-lcov | codecov",
+    "report-coverage": "nyc --reporter=text-lcov report | codecov",
     "test:watch": "npm t -- -w",
     "test": "mocha --require @babel/register \"src/**/*.js\"",
     "cover": "nyc --exclude .babelrc.js --exclude \"**/*{.,-}test.js\" --reporter=html --reporter=text npm t",
